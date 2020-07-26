@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
+import Header from "./components/Header";
+import Formulario from "./components/Formulario";
 
 function App() {
   return (
     <Fragment>
-      <header>
-        <h1>Generador de folios para InDesign</h1>
-      </header>
+      <Header />
+      <Formulario />
     </Fragment>
   );
 }
