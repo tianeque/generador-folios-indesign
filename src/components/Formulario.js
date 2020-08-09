@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import { CSVLink } from "react-csv";
 //import Error from "./Error";
 import { crearFolios } from "../helpers";
 
@@ -8,8 +9,8 @@ const Formulario = () => {
     hasta: null,
     moldes: null,
   });
-  //const [folios, setFolios] = useState([]);
-  //const [error, setError] = useState(false);
+
+  const [folios, setFolios] = useState();
 
   //Manejando input de usuario
 
@@ -20,7 +21,7 @@ const Formulario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { desde, hasta, moldes } = parametros;
-    crearFolios(desde, hasta, moldes);
+    setFolios(crearFolios(desde, hasta, moldes));
   };
 
   return (
@@ -44,6 +45,11 @@ const Formulario = () => {
           />
         </div>
         <button>Generar</button>
+        {folios ? (
+          <CSVLink data={folios} enclosingCharacter={``}>
+            Descargar
+          </CSVLink>
+        ) : null}
       </form>
     </Fragment>
   );

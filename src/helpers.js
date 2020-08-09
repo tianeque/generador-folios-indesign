@@ -6,10 +6,9 @@ export function crearFolios(desde, hasta, moldes) {
   const cantidad = hasta - desde + 1;
   const paso = cantidad / moldes;
 
-  // console.log(`paso: ${paso}`);
-
   let folios = [];
 
+  //En este bloque se crean los folios para diferente cantidad de moldes
   for (let item = 1; item <= paso; item++) {
     let folio = {};
     for (let i = 1; i <= moldes; i++) {
@@ -18,7 +17,12 @@ export function crearFolios(desde, hasta, moldes) {
     folios.push(folio);
     // console.log(desde, item, paso, moldes);
   }
-  console.log(folios);
+  return folios;
 }
 
-export function validar(desde, hasta, moldes) {}
+//funcion de validación de consistencia de los datos
+export function validar(desde, hasta, moldes) {
+  if (!desde || !hasta || !moldes) {
+    return false;
+  }
+}
